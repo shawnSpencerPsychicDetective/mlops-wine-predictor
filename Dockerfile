@@ -18,4 +18,4 @@ COPY . .
 
 # 6. Define the command to run when the container starts
 # host 0.0.0.0 is crucial! It tells the container to listen to outside requests
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "80"]
+CMD sh -c "uvicorn app:app --host 0.0.0.0 --port ${PORT:-8000}"
